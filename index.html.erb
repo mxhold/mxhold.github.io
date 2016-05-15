@@ -1,0 +1,87 @@
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>Max Holder</title>
+  <link rel="stylesheet" href="tufte.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <article>
+    <h1>
+      Max Holder
+    </h1>
+    <p class="subtitle">
+      programmer, pastry enthusiast
+    </p>
+
+    <section id="about">
+      <p>
+        I work at <a href="https://braintreepayments.com">Braintree</a>.
+      </p>
+      <p>
+        I'm interested in <a href="https://www.rust-lang.org/">Rust</a>,
+        <a href="http://elixir-lang.org">Elixir</a>, and
+        <a href="https://www.ruby-lang.org">Ruby</a>.
+      </p>
+      <p>
+        You can find me on <a href="https://twitter.com/maxholder">Twitter</a>
+        and <a href="https://github.com/mxhold">GitHub</a> or you can
+        <a href="mailto:mxhold@gmail.com">email</a> me.
+      </p>
+    </section>
+
+    <section id="blog-posts">
+      <h2>Blog posts</h2>
+      <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <%= post.date %> &mdash;
+          <a href="<%= post.url %>"><%= post.title %></a>
+        </li>
+      <% end %>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/mxhold/markov_rs">markov_rs</a> &mdash; a
+          Rust library for generating text using
+          <a href="https://en.wikipedia.org/wiki/Markov_chain">Markov chains</a>
+        </li>
+        <li>
+          <a href="https://github.com/mxhold/benchmark_ips">benchmark_ips</a>
+          &mdash; an Elixir library for iteration per second
+          benchmarking<label for="sn-demo" class="margin-toggle
+            sidenote-number"></label>
+          <input type="checkbox" id="sn-demo" class="margin-toggle"/>
+          <span class="sidenote">
+            inspired by <a
+              href="https://github.com/evanphx/benchmark-ips">benchmark-ips</a>
+          </span>
+        </li>
+        <li>
+          <a href="https://github.com/mxhold/elo_rating">elo_rating</a> &mdash;
+          a Ruby library for calculating
+          <a href="https://en.wikipedia.org/wiki/Elo_rating_system">Elo
+          ratings</a>
+        </li>
+      </ul>
+    </section>
+  </article>
+  <footer>
+    <p>
+      Site style based on
+      <a href="https://edwardtufte.github.io/tufte-css/">tufte-css</a>.
+    </p>
+    <p>
+      Hosted on <a href="https://github.com/mxhold/mxhold.github.io">GitHub</a>.
+    </p>
+  </footer>
+</body>
+
+</html>
