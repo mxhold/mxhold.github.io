@@ -1,0 +1,13 @@
+<nav class="top-nav sans">
+  <a href="<%= path_to(".") %>">MH</a>
+</nav>
+
+<article>
+  <h1><%= @post.title %></h1>
+  <p class="subtitle"><%= @post.date %></p>
+
+  <%# if subtitle %>
+  <section>
+    <%= @post.body %>
+  </section>
+</article>

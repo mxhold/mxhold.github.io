@@ -1,12 +1,13 @@
 require "yaml"
+require "erb"
 require_relative "./markdown"
 
 class Post
-  attr_reader :title
-  def initialize(title:, date:, body:, filename:)
+  attr_reader :title, :raw_body
+  def initialize(title:, date:, raw_body:, filename:)
     @title = title
     @date = date
-    @body = body
+    @raw_body = raw_body
     @filename = filename
   end
 
@@ -18,8 +19,8 @@ class Post
     @date.strftime("%Y %b %-d")
   end
 
-  def render
-    SyntaxHighlightedMarkdown.render(@body)
+  def body
+    SyntaxHighlightedMarkdown.render(@raw_body)
   end
 
   def output_filepath
@@ -28,9 +29,9 @@ class Post
 
   def output_directory
     File.join(
-      @date.year,
-      @date.month,
-      @date.day,
+      @date.year.to_s,
+      @date.month.to_s,
+      @date.day.to_s,
       slug
     )
   end
@@ -43,7 +44,7 @@ class Post
       filename: filename,
       title: metadata["title"],
       date: metadata["date"],
-      body: file_contents.split("---\n").last
+      raw_body: file_contents.split("---\n").last
     )
   end
 

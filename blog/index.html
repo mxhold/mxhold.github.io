@@ -1,4 +1,15 @@
-<article>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>Max Holder</title>
+  <link rel="stylesheet" href="css/tufte.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <article>
   <h1>
     Max Holder
   </h1>
@@ -25,11 +36,15 @@
   <section id="blog-posts">
     <h2>Blog posts</h2>
     <ul>
-    <% @posts.sort_by(&:date).reverse.each do |post| %>
+    
       <li>
-        <%= post.date %> &mdash; <a href="<%= post.output_directory %>"><%= post.title %></a>
+        2016 May 15 &mdash; <a href="2016/5/15/syntax-test">Syntax Test</a>
       </li>
-    <% end %>
+    
+      <li>
+        2016 May 15 &mdash; <a href="2016/5/15/blogs-I-like">Blogs I like</a>
+      </li>
+    
     </ul>
   </section>
 
@@ -61,3 +76,13 @@
     </ul>
   </section>
 </article>
+
+  <footer>
+    <p>
+      Site generated using
+      <a href="#">tufte-blog</a>.
+    </p>
+  </footer>
+</body>
+
+</html>
