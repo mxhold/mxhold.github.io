@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    rack (1.6.4)
     redcarpet (3.3.4)
     rouge (1.10.1)
 
@@ -8,6 +9,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rack
   redcarpet (~> 3.3)
   rouge (~> 1.10)
 
