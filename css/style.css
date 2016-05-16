@@ -12,16 +12,15 @@ footer p {
 .top-nav {
   font-size: 2rem;
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: #111;
-  padding: 1rem 1rem;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0rem 0.5rem;
+  line-height: 100%;
 }
 
 .top-nav a {
-  background: none;
-  text-shadow: none;
-  color: white;
+  text-decoration: none;
+  background-repeat: initial;
 }
 
 
