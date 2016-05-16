@@ -1,6 +1,6 @@
 require "fileutils"
-require_relative "./post"
-require_relative "./blog"
+require_relative "./lib/post"
+require_relative "./lib/blog"
 
 posts = Dir.glob("posts/*").map do |path|
   Post.load(path)
@@ -14,6 +14,7 @@ posts.each do |post|
     post.output_filepath,
     :@post => post,
   )
+  puts "Created #{post.output_filepath}"
 end
 
 Blog.render_to_file_with_layout(
@@ -21,3 +22,4 @@ Blog.render_to_file_with_layout(
   "./index.html",
   :@posts => posts,
 )
+puts "Created index.html"
