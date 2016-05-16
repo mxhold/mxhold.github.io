@@ -10,3 +10,6 @@ PLATFORMS
 DEPENDENCIES
   redcarpet (~> 3.3)
   rouge (~> 1.10)
+
+BUNDLED WITH
+   1.12.3

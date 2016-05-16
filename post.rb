@@ -1,5 +1,4 @@
 require "yaml"
-require "erb"
 require_relative "./markdown"
 
 class Post
@@ -24,19 +23,14 @@ class Post
   end
 
   def output_filepath
-    File.join(output_directory, "index.html")
+    File.join(output_dir, "index.html")
   end
 
-  def output_directory
-    File.join(
-      @date.year.to_s,
-      @date.month.to_s,
-      @date.day.to_s,
-      slug
-    )
+  def output_dir
+    File.join(@date.year.to_s, @date.month.to_s, @date.day.to_s, slug)
   end
 
-  def self.load_post(filename)
+  def self.load(filename)
     file_contents = File.read(filename)
     metadata = YAML.load(file_contents)
 
@@ -46,11 +40,5 @@ class Post
       date: metadata["date"],
       raw_body: file_contents.split("---\n").last
     )
-  end
-
-  def self.load_posts(glob)
-    Dir.glob(glob).map do |path|
-      load_post(path)
-    end
   end
 end
