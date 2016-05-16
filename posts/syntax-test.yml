@@ -7,29 +7,34 @@ I made this post to test my blog's ability to do syntax highlighting.
 Here's some Ruby:
 
 ```ruby
-class Foo
-  def bar(arg)
-    puts "hello #{arg}"
+module Greeting
+  def self.hello(arg)
+    puts "Hello, #{arg}!"
   end
 end
+Greeting.hello("World") # => "Hello, World!"
 ```
 
 Here's some Elixir:
 
 ```elixir
-defmodule Foo do
-  def bar(arg) do
-    IO.puts "hello #{arg}"
+defmodule Greeting do
+  def hello(arg) do
+    IO.puts "Hello, #{arg}!"
   end
 end
+Greeting.hello("World") # => "Hello, World!"
 ```
 
 Here's some Rust:
 
 ```rust
-mod foo {
-  pub fn bar(arg: String) {
-    println!("hello {}", arg);
-  }
+mod greeting {
+    pub fn hello(arg: &str) {
+        println!("Hello, {}!", arg);
+    }
+}
+fn main() {
+    greeting::hello("World"); // => "Hello, World!"
 }
 ```
