@@ -1,20 +1,7 @@
 require "erb"
 
 module Blog
-  module ViewHelpers
-    def path_to(path_relative_to_root)
-      nesting_level = Pathname.new(@output_dir).ascend.to_a.size
-      if nesting_level == 1
-        path_relative_to_root
-      else
-        File.join(nesting_level.times.map { ".." }, path_relative_to_root)
-      end
-    end
-  end
-
   class Renderer
-    include ViewHelpers
-
     def initialize(variables)
       variables.each do |name, value|
         instance_variable_set(name, value)
