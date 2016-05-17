@@ -38,7 +38,7 @@ class Post
       filename: filename,
       title: metadata["title"],
       date: metadata["date"],
-      raw_body: file_contents.split("---\n").last
+      raw_body: file_contents.split("---\n", 3).last
     )
   end
 end
