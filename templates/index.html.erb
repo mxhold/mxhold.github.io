@@ -24,31 +24,29 @@
 
   <section id="blog-posts">
     <h2>Blog posts</h2>
-    <ul>
-    <% @posts.sort_by(&:date).reverse.each do |post| %>
+    <ul><% @posts.sort_by(&:date).reverse.each do |post| %>
       <li>
         <%= post.date %> &mdash;
-        <a href="<%= post.output_dir %>"><%= post.title %></a>
+        <a href="<%= post.output_directory %>"><%= post.title %></a>
       </li>
-    <% end %>
-    <li>
-      2015 June 4 &mdash;
-      <a href="blog/build-a-blog-with-phoenix-and-ember">
-        Build a Blog with Phoenix and Ember.js
-      </a>
-    </li>
-    <li>
-      2015 May 19 &mdash;
-      <a href="blog/rails-migration-checklist/">
-        Rails Migration Checklist
-      </a>
-    </li>
-    <li>
-      2014 Sep 29 &mdash;
-      <a href="blog/contributing-to-open-source-with-copy-paste/">
-        Contributing to Open Source using Copy and Paste
-      </a>
-    </li>
+      <% end %><li>
+        2015 June 4 &mdash;
+        <a href="blog/build-a-blog-with-phoenix-and-ember">
+          Build a Blog with Phoenix and Ember.js
+        </a>
+      </li>
+      <li>
+        2015 May 19 &mdash;
+        <a href="blog/rails-migration-checklist/">
+          Rails Migration Checklist
+        </a>
+      </li>
+      <li>
+        2014 Sep 29 &mdash;
+        <a href="blog/contributing-to-open-source-with-copy-paste/">
+          Contributing to Open Source using Copy and Paste
+        </a>
+      </li>
     </ul>
   </section>
 

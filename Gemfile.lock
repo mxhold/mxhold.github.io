@@ -4,14 +4,16 @@ GEM
     rack (1.6.4)
     redcarpet (3.3.4)
     rouge (1.10.1)
+    tufte (1.0.1)
+      rack (~> 1.6)
+      redcarpet (~> 3.3)
+      rouge (~> 1.10)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  rack
-  redcarpet (~> 3.3)
-  rouge (~> 1.10)
+  tufte (~> 1.0)
 
 BUNDLED WITH
    1.12.3
