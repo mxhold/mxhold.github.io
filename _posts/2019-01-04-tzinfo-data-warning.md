@@ -19,6 +19,8 @@ Rails includes this gem because it needs to be able to do timezone conversions a
 On Unix-like systems, these are usually provided by the system itself so the tzinfo gem will just use those.
 Windows, however, does not provide these definitions so the tzinfo-data gem needs to be included to provide them instead.
 
+If you're using a Unix-like system, you can safely ignore these warnings but since they happen every time you run `bundle install`, they can get very annoying and it's useful to know how to turn them off.
+
 ## How to silence these warnings
 
 Fortunately, Bundler (versions >= 1.17.0) has an [option](https://bundler.io/v1.17/bundle_config.html) `disable_platform_warnings` for silencing these warnings.
