@@ -1,19 +1,9 @@
 # maxwellholder.com
 
-This site is deployed at <https://maxwellholder.com>.
+This project generates the site deployed at <https://maxwellholder.com>.
 
-It was generated using [tufte](https://github.com/mxhold/tufte).
+## How to
 
-## Getting started
-
-Regenerate `index.html` and the blog posts using:
-
-    bin/tufte build
-
-Serve them locally at <http://localhost:9292> with:
-
-    bin/tufte serve
-
-Deploy with:
-
-    git push origin master
+1. `bundle`
+2. `bin/jekyll serve` to start the server
+3. Open <http://localhost:4000> in your browser to view rendered site
