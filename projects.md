@@ -10,9 +10,9 @@ Here are some projects I've worked on in the past:
 - [reconv](https://github.com/mxhold/reconv) - web app for converting recipes from American volumetric units to grams
 
 ## Ruby
-- [ehh](https://github.com/mxhold/ehh) - experimental web microframework (<100 lines) powered by [Rack](https://rack.github.io/)
-- [opted](https://github.com/mxhold/opted) - library providing Rust's [Result](https://doc.rust-lang.org/std/result/index.html) type in Ruby
 - [elo_rating](https://github.com/mxhold/elo_rating) - library for calculating [Elo ratings](https://en.wikipedia.org/wiki/Elo_rating_system)
+- [opted](https://github.com/mxhold/opted) - library providing Rust's [Result](https://doc.rust-lang.org/std/result/index.html) type in Ruby
+- [ehh](https://github.com/mxhold/ehh) - experimental web microframework (<100 lines) powered by [Rack](https://rack.github.io/)
 - [lifelike](https://github.com/mxhold/lifelike) - program that can play [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) or simulate any [Life-like cellular automata](https://en.wikipedia.org/wiki/Life-like_cellular_automaton)
 - [vocal_tract_length](https://github.com/mxhold/vocal_tract_length) - Sinatra app that calculates the length of your [vocal tract](https://en.wikipedia.org/wiki/Vocal_tract) by recording your voice
 
