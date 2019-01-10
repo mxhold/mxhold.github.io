@@ -6,7 +6,7 @@ date:   2019-01-09 14:24:37 -0800
 Most web applications use a database to persist state.
 Since the database is separate from the application and changes cannot be made to both simultaneously, there are various strategies for keeping them in sync.
 
-## Fully-coupled
+## Fully-coupled releases
 
 Many web applications are deployed by:
 
@@ -20,7 +20,7 @@ This is a simple approach that does not require backwards- or forwards-compatibi
 
 A downside to this approach is that it requires the application to go offline during deploys, causing some period of unavailability.
 
-## Partially-coupled
+## Partially-coupled releases
 
 In order to provide zero-downtime deployments, another strategy exists involving [blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
@@ -80,7 +80,7 @@ There is also conceptual overhead required in having to think through when any p
 
 This approach also still has the problem of long-running migrations holding up an app release.
 
-## Zero-coupling
+## Decoupled releases
 
 In all of the previously mentioned approaches, performing the database migration at a specified point during a release along with an application deploy affords not having to maintain either backwards- or forwards-compatibility (though not both except in the first case).
 
