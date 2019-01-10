@@ -16,7 +16,7 @@ I'm a web developer interested in [Ruby](https://www.ruby-lang.org), [Rust](http
 
 This is what I look like:
 
-<img alt="white guy with stubble and septum piercing smiling with flowery hat on backwards" src="https://s.gravatar.com/avatar/1f234d47645183f503f58bb8c50d5bae.jpg?s=460" height="230" width="230" />
+{% avatar mxhold size=230 %}
 
 If you like any of the blog posts on this site, please [email me](mailto:mxhold@gmail.com) and let me know!
 
