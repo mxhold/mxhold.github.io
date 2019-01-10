@@ -6,8 +6,8 @@ permalink: /projects/
 
 Here are some projects I've worked on in the past:
 
-## React
-- [reconv](https://github.com/mxhold/reconv) - web app for converting recipes from American volumetric units to grams
+## Javascript
+- [reconv](https://github.com/mxhold/reconv) - React app for converting recipes from American volumetric units to grams
 
 ## Ruby
 - [elo_rating](https://github.com/mxhold/elo_rating) - library for calculating [Elo ratings](https://en.wikipedia.org/wiki/Elo_rating_system)
