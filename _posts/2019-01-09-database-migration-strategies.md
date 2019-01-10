@@ -59,7 +59,7 @@ This means the new application code can then assume that the column will be pres
 
 In the post-migration approach, the new application code cannot assume the column is present.
 This would require the new application code to conditionally handle either case, adding complexity, or more likely, spreading out the change over two releases (adding the column in the first release and then using it in the second).
-The tradeoff is that the old application code need not work with the new column since it would never be run with it present.
+The trade-off is that the old application code need not work with the new column since it would never be run with it present.
 
 The benefit of the post-migration approach is more apparent when we consider the example of removing a column (ignoring the specific issues that stem from Rails caching columns that necessitate [ignoring columns](https://github.com/rails/rails/pull/21720) prior to dropping them even when the application no longer uses the column).
 
@@ -72,7 +72,7 @@ If you had to pick between having either pre- or post-migrations only, it's more
 
 ### Both pre- and post-deploy migrations
 
-Given the tradeoffs to these approaches, there is of course another approach possible: to run some migrations before the new code is deployed and some after.
+Given the trade-offs to these approaches, there is of course another approach possible: to run some migrations before the new code is deployed and some after.
 
 This approach has added complexity since most database migration tooling (e.g. Active Record migrations) is built with the assumption of just running all of the migrations available.
 
@@ -100,7 +100,7 @@ If some additional work is taken to separate the release pipelines, this approac
 
 ## Conclusion
 
-Each approach outlined above has tradeoffs. As coupling decreases, the conceptual overhead required to understand the necessary backwards- and/or forwards-compatibility quickly increases.
+Each approach outlined above has trade-offs. As coupling decreases, the conceptual overhead required to understand the necessary backwards- and/or forwards-compatibility quickly increases.
 
 It's often assumed that the work necessary to decouple application changes from database changes is not worth pursuing until reaching a certain scale, but as soon as they are partially decoupled (for zero-downtime deployment), it becomes essential to consider the need for backwards- and forwards-compatibility. I believe that it may prove to be worth it to expend the additional effort to fully decouple application and database changes early on to establish good habits and provide confidence for rollbacks.
 
