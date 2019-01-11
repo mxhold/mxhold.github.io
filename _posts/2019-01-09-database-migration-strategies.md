@@ -51,6 +51,8 @@ This also means that if a problem is discovered after the deploy and the applica
 
 However, the problem of database migrations holding up a deploy still applies in either case; it would just be shifted to happening later.
 
+### Why most everyone does pre-deploy migrations
+
 This alternative is not usually chosen since additive changes are more common.
 Consider the example of adding a new column.
 
@@ -61,22 +63,24 @@ In the post-migration approach, the new application code cannot assume the colum
 This would require the new application code to conditionally handle either case, adding complexity, or more likely, spreading out the change over two releases (adding the column in the first release and then using it in the second).
 The trade-off is that the old application code need not work with the new column since it would never be run with it present.
 
-The benefit of the post-migration approach is more apparent when we consider the example of removing a column (ignoring the specific issues that stem from Rails caching columns that necessitate [ignoring columns](https://github.com/rails/rails/pull/21720) prior to dropping them even when the application no longer uses the column).
+The benefit of the post-migration approach is more apparent when we consider the example of removing a column (ignoring the specific issues that stem from some frameworks like Ruby on Rails caching columns that necessitate [ignoring columns](https://github.com/rails/rails/pull/21720) prior to dropping them even when the application no longer uses the column).
 
-In the pre-migration approach, the column is removed before the new code is deployed.
+In the pre-migration approach, the column is dropped before the new code is deployed.
 This would necessitate the old code to work without the column that is about to be removed, which would require conditionally handling either case (again adding complexity), or more commonly, would require two releases.
 
-In the post-migration approach, the new code is deployed before the column is removed so it can be safely dropped as no running apps will attempt to use it.
+In the post-migration approach, the new code that removes all usages of the column is deployed before the column is dropped so it can be safely dropped as no running apps will attempt to use it.
 
-If you had to pick between having either pre- or post-migrations only, it's more common to choose pre-migrations since applications additive changes like adding columns are usually more common than subtractive changes like removing columns.
+If you had to pick between having either pre- or post-migrations only, it's more common to choose pre-migrations since they make additive changes only require a single release and additive changes are more common as applications tend to grow larger over time.
 
 ### Both pre- and post-deploy migrations
 
 Given the trade-offs to these approaches, there is of course another approach possible: to run some migrations before the new code is deployed and some after.
 
-This approach has added complexity since most database migration tooling (e.g. Active Record migrations) is built with the assumption of just running all of the migrations available.
+This approach often requires building out some kind of migration tagging to allow running pre-migrations at one point during a release and post-migrations at another since most database migration tooling (e.g. Active Record migrations) is built with the assumption that running migrations means running all previously unrun migrations.
 
-There is also conceptual overhead required in having to think through when any particular migration should be run and how to handle rollbacks.
+There is also conceptual overhead required in having to think through whether any particular migration should be run as a pre-migration or as a post-migration.
+
+It also complicates thinking about how to handle rollbacks, e.g. if a post-migration fails, does that mean you should also rollback the application and the pre-migration?
 
 This approach also still has the problem of long-running migrations holding up an app release.
 
