@@ -38,7 +38,7 @@ postgres=# select e'hello\nworld' ~ '^hello$';
 **Sidenote:** Postgres will not interpret `\n` inside a string as a newline by default. To use C-style escapes, you have to [prefix the string with an E](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-STRINGS-ESCAPE): `e'hello\nworld'`
 
 
-To change to "newline-sensitive" mode, you have to add a [special prefix](https://www.postgresql.org/docs/current/functions-matching.html#POSIX-METASYNTAX) `(?n)`:
+To get the same behavior as Ruby, you have to change to "newline-sensitive" mode by adding a [special prefix](https://www.postgresql.org/docs/current/functions-matching.html#POSIX-METASYNTAX) `(?n)`:
 
 ```
 postgres=# select e'hello\nworld' ~ '(?n)^hello$';
