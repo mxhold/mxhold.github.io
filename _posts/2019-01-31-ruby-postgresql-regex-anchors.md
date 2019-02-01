@@ -64,9 +64,11 @@ postgres=# select e'hello\nworld' ~ '(?n)\Ahello\nworld\Z';
 (1 row)
 ```
 
+So Ruby and Postgres have `\z` and `\Z` to match the end of a string, respectively.
+
 ## The confusing bit
 
-Confusingly, Ruby also has a `\Z` but it means "match end of string, ignoring a single newline at the end":
+Unfortunately, in addition to `\z`, Ruby also has `\Z` which will match the end of string ignoring a single newline at the end:
 ```
 irb(main):001:0> "hello\nworld".match?(/\Ahello\nworld\Z/)
 => true
@@ -77,6 +79,8 @@ irb(main):003:0> "hello\nworld\n\n".match?(/\Ahello\nworld\Z/)
 irb(main):004:0> "hello\nworld\n\n".match?(/\Ahello\nworld\n\Z/)
 => true
 ```
+
+This doesn't seem very useful to me since you could just use `\n?\z` instead, which seems more obvious.
 
 My guess is that this was provided to match the behavior in Perl as described [here](https://www.regular-expressions.info/anchors.html):
 >Because Perl returns a string with a newline at the end when reading a line from a file, Perl's regex engine matches $ at the position before the line break at the end of the string even when multi-line mode is turned off. Perl also matches $ at the very end of the string, regardless of whether that character is a line break. So `^\d+$` matches `123` whether the subject string is `123` or `123\n`.
