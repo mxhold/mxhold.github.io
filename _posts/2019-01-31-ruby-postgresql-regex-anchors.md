@@ -25,7 +25,7 @@ irb(main):003:0> "hello".match?(/\Ahello\z/)
 
 ## PostgreSQL
 
-Postgres also has a [pattern matching](https://www.postgresql.org/docs/current/functions-matching.html) feature but it works in "non-newline-sensitive" mode by default:
+Postgres also has [regular expression matching](https://www.postgresql.org/docs/current/functions-matching.html#FUNCTIONS-POSIX-REGEXP) but it works in "non-newline-sensitive" mode by default:
 
 ```
 postgres=# select e'hello\nworld' ~ '^hello$';
