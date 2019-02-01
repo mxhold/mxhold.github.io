@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Should database migrations run before or after deploys? Consider: neither!"
+title:  "Database migration strategies"
 date:   2019-01-09 14:24:37 -0800
 ---
 Most web applications use a database to persist state.
